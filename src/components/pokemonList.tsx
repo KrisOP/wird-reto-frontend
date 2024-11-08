@@ -28,6 +28,10 @@ export const PokemonList = ({ pokemons }: { pokemons: PokemonModel[] }) => {
         readyToBattleStatus: false 
       }));
       
+    }
+    else if (pokemonsToBattleList.length >= 6) {
+        alert('No puedes agregar más de 6 Pokémon a la batalla');
+        return;
     } else {
         //dispatch(addPokemonToBattle(pokemon));
         dispatch(addPokemonToBattle({
@@ -38,13 +42,10 @@ export const PokemonList = ({ pokemons }: { pokemons: PokemonModel[] }) => {
             pokemonId: pokemonId, 
             readyToBattleStatus: true 
           }));
-
-         
-       
     }
   };
   return (
-    <div className="grid grid-cols-4 gap-4 mt-6">
+    <div className="grid grid-cols-3 gap-3 mt-6">
       {pokemons.map((pokemon) => {
         return (
           <div
@@ -71,7 +72,7 @@ export const PokemonList = ({ pokemons }: { pokemons: PokemonModel[] }) => {
                 </span>
               </button>
             </div>
-            <div className="flex flex-col items-center pb-10">
+            <div className="flex flex-col items-center pb-5">
               <img
                 className="w-24 h-24 mb-3 rounded-full shadow-lg"
                 src={pokemon.urlImage}

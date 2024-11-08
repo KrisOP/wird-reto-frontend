@@ -19,10 +19,11 @@ const pokemonToBattleSlice = createSlice({
   initialState: initialPokemonToBattleState,
   reducers: {
     addPokemonToBattle : (state, action) => {
-      console.log("llegando...", state, action )
+      if (state.totalCount >= 6) {
+        return; // No permite agregar más pokemones si ya hay 6
+      }
         state.pokemonsToBattleList= [...state.pokemonsToBattleList, action.payload];
         state.totalCount +=1;
-
     },
     removePokemonToBattle : (state, action) => {
         const pokemonId = action.payload;
