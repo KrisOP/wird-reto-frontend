@@ -28,6 +28,10 @@ export const PokemonList = ({ pokemons }: { pokemons: PokemonModel[] }) => {
         readyToBattleStatus: false 
       }));
       
+    }
+    else if (pokemonsToBattleList.length >= 6) {
+        alert('No puedes agregar más de 6 Pokémon a la batalla');
+        return;
     } else {
         //dispatch(addPokemonToBattle(pokemon));
         dispatch(addPokemonToBattle({
