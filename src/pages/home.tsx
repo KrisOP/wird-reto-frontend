@@ -5,7 +5,6 @@ import Axios from "axios";
 
 import { useEffect } from "react";
 import { RootState } from "../app/store";
-import PokemonToBattleSlice from "../reducers/pokemonsToBattle/pokemonToBattleSlice";
 import { PokemonToBattleList } from "../components/pokemonToBattleList";
 
 export const Home = () => {
