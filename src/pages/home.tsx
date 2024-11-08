@@ -14,18 +14,20 @@ export const Home = () => {
       async (response) => {
         const basicPokemons = response.data.results;
         // Usar Promise.all para obtener detalles adicionales para cada Pokémon
-        const detailedPokemons = await Promise.all(
-          basicPokemons.map(async (pokemon: { name: string; url: string }) => {
+        const allPokemons = await Promise.all(
+          basicPokemons.map(async (pokemon: { name: string; url: string; readyToBattle:boolean }) => {
             const details = await Axios.get(pokemon.url);
             return {
               name: pokemon.name,
-              urlImage: details.data.sprites.front_default, // Obtiene la imagen desde los detalles
+              id: details.data.id,
+              urlImage: details.data.sprites.front_default,
+              readyToBattle:false
+               // Obtiene la imagen desde los detalles
             };
           })
         );
 
-        setPokemons(detailedPokemons);
-        //setPokemons(detailedPokemons)
+        setPokemons(allPokemons);
       }
     );
   }, []);

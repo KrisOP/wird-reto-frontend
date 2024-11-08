@@ -8,8 +8,8 @@ interface PokemonStateModel {
 }
 
 const initialPokemonState: PokemonStateModel ={
-    totalCount : 1,
-    pokemonList: [{id:1,name:"pikachu",urlImage:"www"}]
+    totalCount : 0,
+    pokemonList: []
 
 } 
 
