@@ -5,11 +5,10 @@ import {
   addPokemonToBattle,
   removePokemonToBattle,
 } from "../reducers/pokemonsToBattle/pokemonToBattleSlice";
+import { updatePokemonReadyStatus } from "../reducers/pokemons/pokemonSlice";
 import { RootState } from "../app/store";
 
 export const PokemonList = ({ pokemons }: { pokemons: PokemonModel[] }) => {
-  //const { pokemonsToBattleList } = useSelector(state => state.pokemonToBattle);
-
   //accediendo al reducer
   const { pokemonsToBattleList } = useSelector(
     (state: RootState) => state.pokemonToBattle
@@ -23,10 +22,11 @@ export const PokemonList = ({ pokemons }: { pokemons: PokemonModel[] }) => {
     if (pokemonsToBattleList.find((pokemon) => pokemon.id === pokemonId)) {
         
       dispatch(removePokemonToBattle(pokemonId));
-      //verificar que no sea undefined
-      if (pokemon) {
-        pokemon.readyToBattle = false;
-    }
+      //actualizando del listado principal el estado
+      dispatch(updatePokemonReadyStatus({ 
+        pokemonId: pokemonId, 
+        readyToBattleStatus: false 
+      }));
       
     } else {
         //dispatch(addPokemonToBattle(pokemon));
@@ -34,6 +34,12 @@ export const PokemonList = ({ pokemons }: { pokemons: PokemonModel[] }) => {
             ...pokemon,
             readyToBattle: true
           }));
+          dispatch(updatePokemonReadyStatus({ 
+            pokemonId: pokemonId, 
+            readyToBattleStatus: true 
+          }));
+
+         
        
     }
   };

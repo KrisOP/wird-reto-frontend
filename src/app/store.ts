@@ -1,13 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 // importantdo Reducers
-import pokemonReducer from "../reducers/pokemons/pokemonSlice";
+import pokemonListReducer from "../reducers/pokemons/pokemonSlice";
 import pokemonToBattleReducer from '../reducers/pokemonsToBattle/pokemonToBattleSlice';
 
 const store = configureStore({
     //estado pokemons utiliza el reducer pokemonReducer
 reducer: {
-    pokemons: pokemonReducer,
+    pokemonList: pokemonListReducer,
     pokemonToBattle: pokemonToBattleReducer,
 }
 }) 

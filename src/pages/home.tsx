@@ -1,12 +1,21 @@
+import { useDispatch, useSelector } from "react-redux";
 import { PokemonList } from "../components/pokemonList";
+import { setPokemonList } from "../reducers/pokemons/pokemonSlice";
 import { PokemonModel } from "../shared/pokemon.model";
 import Axios from "axios";
 
 import { useState, useEffect } from "react";
+import { RootState } from "../app/store";
 
 export const Home = () => {
   //inicializando lista de pokemons
-  const [pokemons, setPokemons] = useState<PokemonModel[]>([]);
+  //const [pokemons, setPokemons] = useState<PokemonModel[]>([]);
+
+  const dispatch = useDispatch();
+  //const pokemonsList = useSelector((state: any) => state.pokemon.pokemonList);
+  const { pokemonList } = useSelector(
+    (state: RootState) => state.pokemonList
+  );
 
   //obtener primeros 151 pokemons de PokeApi
   useEffect(() => {
@@ -20,25 +29,27 @@ export const Home = () => {
             return {
               name: pokemon.name,
               id: details.data.id,
-              urlImage: details.data.sprites.front_default,
+              urlImage: details.data.sprites.front_default,  // Obtiene la imagen desde los detalles
               readyToBattle:false
-               // Obtiene la imagen desde los detalles
+               
             };
           })
         );
 
-        setPokemons(allPokemons);
+        //setPokemons(allPokemons);
+        //actualizando el listadoInicial
+        dispatch(setPokemonList(allPokemons));
       }
     );
-  }, []);
+  }, [dispatch]);
 
-  useEffect(() => {
-    console.log("Estado actual de pokemons:", pokemons);
-  }, [pokemons]);
+//   useEffect(() => {
+//     console.log("Estado actual de pokemons:", pokemons);
+//   }, [pokemons]);
   //const pokemons: PokemonModel[] = []
   return (
     <>
-      <PokemonList pokemons={pokemons} />
+      <PokemonList pokemons={pokemonList} />
     </>
   );
 };
