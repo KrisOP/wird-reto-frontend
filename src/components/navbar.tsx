@@ -1,3 +1,6 @@
+import pokeball from '/img/pokeball.png';
+import wirdLogo from '/img/wird-logo.jpg';
+
 export const Navbar = () => {
   return (
     <>
@@ -8,7 +11,7 @@ export const Navbar = () => {
             className="flex items-center space-x-3 rtl:space-x-reverse text-slate-800"
           >
             <img
-              src="public/img/pokeball.png"
+              src={pokeball}
               className="w-11"
               alt="Pokeball Logo"
             />
@@ -21,7 +24,7 @@ export const Navbar = () => {
             <a href="https://www.wird.ai/" className="w-9 rounded-full ml-3">
               <img
                 className="rounded-full"
-                src="public/img/wird-logo.jpg"
+                src={wirdLogo}
               />
             </a>
           </div>
