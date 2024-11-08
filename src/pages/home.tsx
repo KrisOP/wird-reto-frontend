@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { PokemonList } from "../components/pokemonList";
 import { setPokemonList } from "../reducers/pokemons/pokemonSlice";
-import { PokemonModel } from "../shared/pokemon.model";
+//import { PokemonModel } from "../shared/pokemon.model";
 import Axios from "axios";
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { RootState } from "../app/store";
 
 export const Home = () => {
