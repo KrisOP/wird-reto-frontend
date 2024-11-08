@@ -8,7 +8,7 @@ export const Navbar = () => {
             className="flex items-center space-x-3 rtl:space-x-reverse text-slate-800"
           >
             <img
-              src="src/assets/img/pokeball.png"
+              src="public/img/pokeball.png"
               className="w-11"
               alt="Pokeball Logo"
             />
@@ -21,7 +21,7 @@ export const Navbar = () => {
             <a href="https://www.wird.ai/" className="w-9 rounded-full ml-3">
               <img
                 className="rounded-full"
-                src="src/assets/img/wird-logo.jpg"
+                src="public/img/wird-logo.jpg"
               />
             </a>
           </div>
