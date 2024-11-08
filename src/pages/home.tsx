@@ -8,14 +8,11 @@ import { RootState } from "../app/store";
 
 export const Home = () => {
   //inicializando lista de pokemons
-  //const [pokemons, setPokemons] = useState<PokemonModel[]>([]);
-
   const dispatch = useDispatch();
   //const pokemonsList = useSelector((state: any) => state.pokemon.pokemonList);
   const { pokemonList } = useSelector(
     (state: RootState) => state.pokemonList
   );
-
   //obtener primeros 151 pokemons de PokeApi
   useEffect(() => {
     Axios.get("https://pokeapi.co/api/v2/pokemon?limit=151").then(
@@ -41,11 +38,6 @@ export const Home = () => {
       }
     );
   }, [dispatch]);
-
-//   useEffect(() => {
-//     console.log("Estado actual de pokemons:", pokemons);
-//   }, [pokemons]);
-  //const pokemons: PokemonModel[] = []
   return (
     <>
       <PokemonList pokemons={pokemonList} />
