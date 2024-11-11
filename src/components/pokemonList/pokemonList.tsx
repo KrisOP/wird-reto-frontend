@@ -52,50 +52,58 @@ export const PokemonList = ({ pokemons }: { pokemons: PokemonModel[] }) => {
     <>
      <SearchPokemon/>
      <div className="grid grid-cols-3 gap-3 mt-6">
-      {filteredPokemonList.map((pokemon) => {
-        return (
-          <div
-            key={pokemon.id}
-            className="w-full max-w-sm min-w-[200px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
-          >
-            <div className="flex justify-end px-4 pt-4">
-              <button
-                className={`btn ${
-                    pokemon.readyToBattle
-                    ? "  inline-block text-red-700 dark:text-red-500 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5"
-                    :  "inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5"
-                }`}
-                type="button"
-                onClick={() => handleAddOrRemovePokemonToBattle(pokemon.id)}
-              >
-                <span className="Icon IconAddToBattle">
-                  {pokemonsToBattleList.find((pdt) => pdt.id === pokemon.id) ? (
-                     <CgTrashEmpty />
-                  ) : (
-                    <CgAdd />
-                  )}
-                  
-                </span>
-              </button>
-            </div>
-            <div className="flex flex-col items-center pb-5">
-              <img
-                className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                src={pokemon.urlImage}
-                alt="Bonnie image"
-              />
-              <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-                {pokemon.name}
-              </h5>
-
-              <span className="text-sm text-gray-500 dark:text-gray-400">
-                {" "}
-                {pokemon.id}
-              </span>
-            </div>
-          </div>
-        );
-      })}
+      {filteredPokemonList.length === 0 ? (
+              <div className="text-center p-4">
+                
+                <p className="text-gray-500 dark:text-gray-400 mb-7">
+                 Sin resultados
+                </p>
+              </div>
+            ): (filteredPokemonList.map((pokemon) => {
+              return (
+                <div
+                  key={pokemon.id}
+                  className="w-full max-w-sm min-w-[200px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+                >
+                  <div className="flex justify-end px-4 pt-4">
+                    <button
+                      className={`btn ${
+                          pokemon.readyToBattle
+                          ? "  inline-block text-red-700 dark:text-red-500 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5"
+                          :  "inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5"
+                      }`}
+                      type="button"
+                      onClick={() => handleAddOrRemovePokemonToBattle(pokemon.id)}
+                    >
+                      <span className="Icon IconAddToBattle">
+                        {pokemonsToBattleList.find((pdt) => pdt.id === pokemon.id) ? (
+                           <CgTrashEmpty />
+                        ) : (
+                          <CgAdd />
+                        )}
+                        
+                      </span>
+                    </button>
+                  </div>
+                  <div className="flex flex-col items-center pb-5">
+                    <img
+                      className="w-24 h-24 mb-3 rounded-full shadow-lg"
+                      src={pokemon.urlImage}
+                      alt="Bonnie image"
+                    />
+                    <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
+                      {pokemon.name}
+                    </h5>
+      
+                    <span className="text-sm text-gray-500 dark:text-gray-400">
+                      {" "}
+                      {pokemon.id}
+                    </span>
+                  </div>
+                </div>
+              );
+            })) }
+      
     </div>
     </>
     

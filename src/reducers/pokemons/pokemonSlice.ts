@@ -29,11 +29,11 @@ const pokemonSlice = createSlice({
     updatePokemonReadyStatus: (state, action) => {
       const { pokemonId, readyToBattleStatus } = action.payload;
       //buscamos el index del pokemon por medio del id
-      const pokemonIndex = state.pokemonList.findIndex(p => p.id === pokemonId);
+      const pokemonIndex = state.filteredPokemonList.findIndex(p => p.id === pokemonId);
       
       //atraves del index actualizamos su estado
       if (pokemonIndex !== -1) {
-        state.pokemonList[pokemonIndex].readyToBattle = readyToBattleStatus;
+        state.filteredPokemonList[pokemonIndex].readyToBattle = readyToBattleStatus;
       }
     },
 
