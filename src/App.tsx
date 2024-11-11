@@ -3,7 +3,7 @@ import "./App.css";
 import { Home } from "./pages/home"; "../src/pages/index";
 import { Route, Routes } from "react-router-dom";
 import { PokemonDetail } from "./pages/pokemonDetails";
-import { Navbar } from "./components/navbar";
+import { Navbar } from "./components/navbar/navbar";
 //import { useSelector } from "react-redux";
 
 function App() {

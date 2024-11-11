@@ -9,6 +9,7 @@ const store = configureStore({
 reducer: {
     pokemonList: pokemonListReducer,
     pokemonToBattle: pokemonToBattleReducer,
+    filteredPokemonList: pokemonListReducer,
 }
 }) 
 

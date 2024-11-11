@@ -9,7 +9,8 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #f6f8fc;
+  /* background-color: red; */
+  background-image: url("../public/img/bg-nature.jpg");
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -33,12 +34,18 @@ body {
   /* min-width: 320px; */
   min-height: 100vh;
   background-color: #f6f8fc;
+  background-image: url("../public/img/bg-nature.jpg");
+  background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+  
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
+
 
 button {
   border-radius: 8px;

@@ -1,10 +1,11 @@
 import pokeball from "/img/pokeball.png";
 import wirdLogo from "/img/wird-logo.jpg";
+import './navbar.css'
 
 export const Navbar = () => {
   return (
     <>
-      <nav className="bg-white border-gray-200 dark:bg-gray-900">
+      <nav className="bg-white border-gray-200 dark:bg-gray-900 navbar">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <a
             href=""
