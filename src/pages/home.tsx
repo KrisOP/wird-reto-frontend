@@ -45,7 +45,7 @@ export const Home = () => {
   return (
     <>
     
-      <div className="flex">
+      <div className="flex home">
         <div>
           <PokemonList pokemons={pokemonList} />
         </div>
