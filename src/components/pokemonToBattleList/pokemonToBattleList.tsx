@@ -4,6 +4,7 @@ import { RootState } from "../../app/store";
 import { removePokemonToBattle } from "../../reducers/pokemonsToBattle/pokemonToBattleSlice";
 import { updatePokemonReadyStatus } from "../../reducers/pokemons/pokemonSlice";
 import { CgAdd,CgTrashEmpty } from "react-icons/cg";
+import  './pokemonToBattleList.css'
 export const PokemonToBattleList = ()=>{
     //accediendo al reducer
   const { pokemonsToBattleList } = useSelector(
@@ -32,7 +33,7 @@ export const PokemonToBattleList = ()=>{
   return (
     <>
     <div className="mt-6 ml-4">
-<div className="w-full max-w-md p-4 bg-green-100 border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+<div className="w-full max-w-md p-4 bg-green-100 border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700 ">
     <div className="flex items-center justify-between mb-4">
         <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white">Listos para el combate</h5>
    </div>
@@ -54,7 +55,7 @@ export const PokemonToBattleList = ()=>{
                 return (
                   <div
                     key={pokemon.id}
-                    className="w-full max-w-sm min-w-[200px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-4"
+                    className="w-full max-w-sm min-w-[200px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-4 card-selected"
                   >
                     <div className="flex justify-end px-4 pt-4">
                       <button
