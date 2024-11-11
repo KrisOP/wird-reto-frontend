@@ -1,18 +1,22 @@
-import { PokemonModel } from "../shared/pokemon.model";
+import { PokemonModel } from "../../shared/pokemon.model";
 import { CgAdd,CgTrashEmpty } from "react-icons/cg";
 import { useSelector, useDispatch } from "react-redux";
 import {
   addPokemonToBattle,
   removePokemonToBattle,
-} from "../reducers/pokemonsToBattle/pokemonToBattleSlice";
-import { updatePokemonReadyStatus } from "../reducers/pokemons/pokemonSlice";
-import { RootState } from "../app/store";
+  
+} from "../../reducers/pokemonsToBattle/pokemonToBattleSlice";
+import { updatePokemonReadyStatus } from "../../reducers/pokemons/pokemonSlice";
+import { RootState } from "../../app/store";
+import { SearchPokemon } from "../searchPokemon/searchPokemon";
 
 export const PokemonList = ({ pokemons }: { pokemons: PokemonModel[] }) => {
   //accediendo al reducer
   const { pokemonsToBattleList } = useSelector(
     (state: RootState) => state.pokemonToBattle
   );
+
+  const { filteredPokemonList } = useSelector((state: RootState) => state.filteredPokemonList);
 
   const dispatch = useDispatch();
   const handleAddOrRemovePokemonToBattle = (pokemonId: number) => {
@@ -45,8 +49,10 @@ export const PokemonList = ({ pokemons }: { pokemons: PokemonModel[] }) => {
     }
   };
   return (
-    <div className="grid grid-cols-3 gap-3 mt-6">
-      {pokemons.map((pokemon) => {
+    <>
+     <SearchPokemon/>
+     <div className="grid grid-cols-3 gap-3 mt-6">
+      {filteredPokemonList.map((pokemon) => {
         return (
           <div
             key={pokemon.id}
@@ -91,5 +97,7 @@ export const PokemonList = ({ pokemons }: { pokemons: PokemonModel[] }) => {
         );
       })}
     </div>
+    </>
+    
   );
 };

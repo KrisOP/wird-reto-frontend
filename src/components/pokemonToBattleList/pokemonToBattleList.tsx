@@ -1,8 +1,8 @@
 
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../app/store";
-import { removePokemonToBattle } from "../reducers/pokemonsToBattle/pokemonToBattleSlice";
-import { updatePokemonReadyStatus } from "../reducers/pokemons/pokemonSlice";
+import { RootState } from "../../app/store";
+import { removePokemonToBattle } from "../../reducers/pokemonsToBattle/pokemonToBattleSlice";
+import { updatePokemonReadyStatus } from "../../reducers/pokemons/pokemonSlice";
 import { CgAdd,CgTrashEmpty } from "react-icons/cg";
 export const PokemonToBattleList = ()=>{
     //accediendo al reducer

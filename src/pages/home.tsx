@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
-import { PokemonList } from "../components/pokemonList";
+import { PokemonList } from "../components/pokemonList/pokemonList";
 import { setPokemonList } from "../reducers/pokemons/pokemonSlice";
 import Axios from "axios";
 
 import { useEffect } from "react";
 import { RootState } from "../app/store";
-import { PokemonToBattleList } from "../components/pokemonToBattleList";
+import { PokemonToBattleList } from "../components/pokemonToBattleList/pokemonToBattleList";
 
 export const Home = () => {
   //inicializando lista de pokemons
