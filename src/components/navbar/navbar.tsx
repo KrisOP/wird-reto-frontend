@@ -1,5 +1,6 @@
 import pokeball from "/img/pokeball.png";
 import wirdLogo from "/img/wird-logo.jpg";
+import { ImGithub } from "react-icons/im";
 import './navbar.css'
 
 export const Navbar = () => {
@@ -17,10 +18,11 @@ export const Navbar = () => {
             </span>
           </a>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            {/* <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Get started</button> */}
-            <a href="https://www.wird.ai/" className="w-9 rounded-full ml-3">
+            <a type="button" className="text-white bg-slate-700 hover:bg-slate-800 focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mr-3 hover:text-green-300 flex justify-center items-center" target="_blank" href="https://github.com/KrisOP/wird-reto-frontend" > <ImGithub className="mr-2"/> Repositorio</a>
+            <a href="https://www.wird.ai/" className="w-9 rounded-full ml-3" target="_blank">
               <img className="rounded-full" src={wirdLogo} />
             </a>
+           
           </div>
           
         </div>
